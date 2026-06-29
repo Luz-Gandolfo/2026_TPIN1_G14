@@ -132,3 +132,24 @@ app.post('/login', async (req, res) => {
         });
     }
 });
+
+app.get("/Questions", async (req, res) => {
+    try {
+        const id = req.query.id;
+        const queryResult = await realizarQuery(
+            'SELECT question FROM Questions WHERE id = ?', 
+            [id]
+        );
+        
+        return res.status(200).json({
+            success: true,
+            data: queryResult 
+        });
+    } catch (error) {
+        console.error('Error en /Questions:', error);
+        return res.status(500).json({
+            success: false,
+            message: 'Error interno del servidor.',
+        });
+    }
+});

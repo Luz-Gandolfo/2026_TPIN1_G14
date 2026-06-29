@@ -109,11 +109,6 @@ button.btn-accion,
     background-color: #3a9e40;
 }
 
-#login-section button:active,
-#register-section button:active {
-    box-shadow: 0 1px 0 #1b4e20;
-    transform: translateY(1px);
-}
 
 #login-msg,
 #register-msg {
